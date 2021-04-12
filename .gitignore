@@ -1,0 +1,5 @@
+.DS_Store
+/.history/
+/nodu_modules/
+/dist/
+yarn.lock
