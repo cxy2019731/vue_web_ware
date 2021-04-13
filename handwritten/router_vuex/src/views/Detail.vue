@@ -3,7 +3,7 @@
  * @Date: 2021-04-12 15:25:38
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-12 18:17:14
+ * @LastEditTime: 2021-04-13 13:30:34
  * @FilePath: \vue_web_ware\handwritten\router_vuex\src\views\Detail.vue
 -->
 <template>
@@ -25,9 +25,6 @@
 export default {
   name: "Detail",
   methods: {},
-  mounted(){
-    console.log(this.$store)
-  }
 };
 </script>
 

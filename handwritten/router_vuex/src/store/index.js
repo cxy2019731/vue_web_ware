@@ -3,7 +3,7 @@
  * @Date: 2021-04-12 14:08:51
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-12 17:44:44
+ * @LastEditTime: 2021-04-13 13:49:47
  * @FilePath: \vue_web_ware\handwritten\router_vuex\src\store\index.js
  */
 import Vue from "vue";

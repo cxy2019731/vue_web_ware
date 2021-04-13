@@ -1,0 +1,48 @@
+<!--
+ * @Author: itmanyong
+ * @Date: 2021-04-13 14:52:57
+ * @LastEditors: itmanyong
+ * @Description: now file Description
+ * @LastEditTime: 2021-04-13 18:08:24
+ * @FilePath: \vue_web_ware\handwritten\vue2_\cvue\kvue.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{count}}</p>
+      <div><button @click="add">count++</button></div>
+      <p>{{counter}}</p>
+      <div c-text="counter"></div>
+      <div c-html="desc"></div>
+      <div>
+        <input type="text" c-model="desc" />
+      </div>
+    </div>
+    <script src="./kvue.js"></script>
+    <script>
+      const app = new Kvue({
+        el: "#app",
+        data: {
+          count: 555,
+          counter: 1,
+          desc: `<h3>牛逼<span style="color:red;">克拉斯</span></h3>`,
+        },
+        methods: {
+          add() {
+            this.count++;
+          },
+        },
+      });
+      setInterval(() => {
+        app.counter++;
+      }, 1000);
+    </script>
+  </body>
+</html>

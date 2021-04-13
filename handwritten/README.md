@@ -3,8 +3,8 @@
  * @Date: 2021-04-12 13:59:16
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-12 14:01:30
- * @FilePath: \handwritten\README.md
+ * @LastEditTime: 2021-04-13 18:28:33
+ * @FilePath: \vue_web_ware\handwritten\README.md
 -->
 ## VUE源码手写系列
     1.源码学习记录
@@ -13,4 +13,5 @@
 
 
 ## 目录导航
-    router_vuex  vue-router和vuex的手写实现,借助于vue自身的能力实现。
+    router_vuex  vue-router和vuex的手写实现,借助于vue自身的能力实现
+    _vue2  vue2的部分源码手写简单实现,包含原理和实现思路
