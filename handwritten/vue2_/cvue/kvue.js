@@ -3,7 +3,7 @@
  * @Date: 2021-04-13 14:54:25
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-13 18:25:38
+ * @LastEditTime: 2021-04-14 11:37:39
  * @FilePath: \vue_web_ware\handwritten\vue2_\cvue\kvue.js
  */
 
@@ -211,10 +211,12 @@ class Wather {
     this._updater = updater;
     // 将当前Wather放入到Dep中方便更新依赖引用
     Dep.target = this;
+    // 读取当前Wather的key触发get中的Deps绑定
     this._vm[this._key];
+    // 在当前this绑定在deps完成后清除
     Dep.target = null;
   }
-
+  // 每一个Wather都有自己的更新方法
   update() {
     // 重置上下文,传递最新的值给更新函数
     this._updater.call(this._vm, this._vm[this._key]);
@@ -225,11 +227,11 @@ class Dep {
   constructor() {
     this.deps = [];
   }
-
+  // 为当前key的deps添加依赖Wather
   addDep(watch) {
     this.deps.push(watch);
   }
-
+  // 更新当前dep的deps中的Wather中的更新函数
   notify() {
     this.deps.forEach((w) => w.update());
   }
