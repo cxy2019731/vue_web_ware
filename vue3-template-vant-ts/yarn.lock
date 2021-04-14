@@ -675,6 +675,11 @@ copy-anything@^2.0.1:
   dependencies:
     is-what "^3.12.0"
 
+core-js@^3.8.3:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.1.tgz#e683963978b6806dcc6c0a4a8bd4ab0bdaf3f21a"
+  integrity sha512-pwCxEXnj27XG47mu7SXAwhLP3L5CrlvCB91ANUkIz40P27kUcvNfSdvyZJ9CLHiVoKSp+TTChMQMSKQEH/IQxA==
+
 cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
@@ -1053,6 +1058,11 @@ ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
+mutation-observer@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/mutation-observer/-/mutation-observer-1.0.3.tgz#42e9222b101bca82e5ba9d5a7acf4a14c0f263d0"
+  integrity sha512-M/O/4rF2h776hV7qGMZUH3utZLO/jK7p8rnNgGkjKUw8zCGjRQPxB8z6+5l8+VjRUQ3dNYu4vjqXYLr+U8ZVNA==
+
 mz@^2.4.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
@@ -1403,6 +1413,14 @@ vant@^3.0.6:
     "@vant/lazyload" "^1.0.4"
     "@vant/popperjs" "^1.0.4"
     "@vant/use" "^1.0.5"
+
+vconsole@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/vconsole/-/vconsole-3.4.1.tgz#b87dbbb12ac9ee88c04a5c3ab9ad7947e1186dd4"
+  integrity sha512-ri5Q4grPat/kCkR0O1uLMuIvpKyKDE8IjBJCZK8rpGvNkINaIjQAcp2oYbSrq897A+5vf2+RAv2YUX1IEaQgeA==
+  dependencies:
+    core-js "^3.8.3"
+    mutation-observer "^1.0.3"
 
 vite@^2.0.05:
   version "2.0.5"

@@ -1,13 +1,17 @@
+<!--
+ * @Author: itmanyong
+ * @Date: 2021-03-10 18:12:17
+ * @LastEditors: itmanyong
+ * @Description: now file Description
+ * @LastEditTime: 2021-04-14 13:38:08
+ * @FilePath: \vue_web_ware\vue3-template-vant-ts\src\App.vue
+-->
 <template>
   <RouterView />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  name: "App",
-  components: {},
-});
+<script lang="ts" setup>
+  console.log(`vconsole测试`)
 </script>
 
 <style>
