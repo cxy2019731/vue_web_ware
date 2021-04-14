@@ -3,7 +3,7 @@
  * @Date: 2021-04-13 14:52:57
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-13 18:08:24
+ * @LastEditTime: 2021-04-14 15:10:15
  * @FilePath: \vue_web_ware\handwritten\vue2_\cvue\kvue.html
 -->
 <!DOCTYPE html>
@@ -24,6 +24,7 @@
       <div>
         <input type="text" c-model="desc" />
       </div>
+      <button @click="changeArr1">arr change</button>
     </div>
     <script src="./kvue.js"></script>
     <script>
@@ -33,11 +34,15 @@
           count: 555,
           counter: 1,
           desc: `<h3>牛逼<span style="color:red;">克拉斯</span></h3>`,
+          arr1: [1, 2, 3, 4, 5, 6],
         },
         methods: {
           add() {
             this.count++;
           },
+          changeArr1(){
+            this.arr1.push(666)
+          }
         },
       });
       setInterval(() => {

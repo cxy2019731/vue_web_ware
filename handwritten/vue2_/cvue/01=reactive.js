@@ -3,9 +3,16 @@
  * @Date: 2021-04-13 14:27:22
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-13 15:09:39
+ * @LastEditTime: 2021-04-14 14:46:19
  * @FilePath: \vue_web_ware\handwritten\vue2_\cvue\01=reactive.js
  */
+// 数组 响应式
+// 1.替换数组中原型闪高的方法
+const orginaProto = Array.prototype;
+// 备份原型，防止污染默认数据
+const arrayProto = Obj.create(orginaProto);
+
+
 
 // 数据响应式,这里只针对对象
 // vue2中的数组有另一套响应式策略

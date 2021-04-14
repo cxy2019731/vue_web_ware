@@ -3,15 +3,30 @@
  * @Date: 2021-04-13 14:54:25
  * @LastEditors: itmanyong
  * @Description: now file Description
- * @LastEditTime: 2021-04-14 11:37:39
+ * @LastEditTime: 2021-04-14 15:12:31
  * @FilePath: \vue_web_ware\handwritten\vue2_\cvue\kvue.js
  */
 
 if (!Array.isArray) {
-  Array.isArray = function(arg) {
+  Array.isArray = function (arg) {
     return Object.prototype.toString.call(arg) === "[object Array]";
   };
 }
+
+// 数据原型拷贝,防止修改默认原型
+const orginaProto = Array.prototype;
+// 创建一个新原型
+const arrayProto = Object.create(orginaProto);
+// 对数组的方法想进行代理
+["push", "shift", "unshift", "pop"].forEach((methodName) => {
+  // 重写
+  arrayProto[methodName] = function () {
+    // 先默认执行对应方法
+    orginaProto[methodName].call(this, arguments);
+    // 再通知更新
+    console.log(`数组使用 ${methodName} 方法更新了 参数为:`,arguments)
+  };
+});
 
 function defineReactive(obj, key, val) {
   // 递归监听
@@ -56,7 +71,12 @@ class Observer {
   constructor(obj) {
     this.value = obj;
     if (Array.isArray(obj)) {
-      // to do
+      // 将传入的数组数据原型改变
+      obj.__proto__ = arrayProto;
+      // 可能数组中的元素不是基础类型,也需要做监听
+      obj.forEach((item) => {
+        observe(item);
+      });
     } else {
       // obj
       this.walk(obj);
@@ -131,7 +151,6 @@ class Compiler {
   }
   // 处理事件
   compileEvent(node, eventType, fnName) {
-    console.log(node, eventType, fnName);
     // 判断methods中是否存在此函数
     const fn = this.$vm.$methods[fnName] || null;
     if (fn) {
@@ -158,7 +177,7 @@ class Compiler {
           this.update(node, value, "html");
           break;
         case "c-model":
-          this.compileModel(node,value)
+          this.compileModel(node, value);
           break;
       }
       // 事件
@@ -176,7 +195,7 @@ class Compiler {
     const fn = this[dir + "Updater"];
     fn && fn(node, this.$vm[exp]);
     // 创建Wather,因为每一个更新的时候都会触发此函数,就方便创建Wather,这里的newVal是下面call绑定传送的参数
-    new Wather(this.$vm, exp, function(newVal) {
+    new Wather(this.$vm, exp, function (newVal) {
       fn && fn(node, newVal);
     });
   }
@@ -185,13 +204,13 @@ class Compiler {
     this.update(node, RegExp.$1, "text");
   }
   // 处理c-model
-  compileModel(node,exp){
+  compileModel(node, exp) {
     // 先绑定初始值
     node.value = this.$vm[exp];
     // 给当前node绑定change事件,并且指定更新对应值
-    node.addEventListener('input',event=>{
-      this.$vm[exp] = event.target.value||"";
-    })
+    node.addEventListener("input", (event) => {
+      this.$vm[exp] = event.target.value || "";
+    });
   }
   // 处理c-text/{{text}}
   textUpdater(node, val) {
